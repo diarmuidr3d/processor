@@ -1,0 +1,37 @@
+
+.data
+# all registers start at 0 
+
+#$t0 - memory address
+#$t1-3 used to calculate fibs
+datain: .byte 0 
+#initialise first 2
+
+.text 
+la $t0, datain
+sb $t1, 0($t0) #save fib 0
+addi $t0 $t0, 1 #next address
+
+addi $t2, $t2, 1
+sb $t2, 0($t0) #save fib 1
+addi $t0 $t0, 1 #next address
+
+#####################
+
+#calculate next 
+
+add $t3, $t2, $t1
+sb $t3, 0($t0) #save fib 2
+addi $t0 $t0, 1 #next address
+
+
+add $t1, $t2, $t3
+sb $t1, 0($t0) #save fib 3
+addi $t0 $t0, 1 #next address
+
+
+add $t2, $t1, $t3
+sb $t2, 0($t0) #save fib 4
+addi $t0 $t0, 1 #next address
+ 
+####### copy pasta
